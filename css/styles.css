@@ -224,6 +224,8 @@ img {
 }
 .nav-logo {
     margin-right: auto;
+    padding: 16px;
+    display: block;
 }
 @media only screen and (min-width: 768px) {
     .nav-logo {
@@ -370,6 +372,37 @@ img {
 .nav-link.active {
     color: #404bbf;
 }
+@media only screen and (min-width: 768px) {
+    .address-nav-link {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.17;
+            letter-spacing: 0.02em;
+            text-align: left;
+            color: #434455;
+            font-style: normal;
+            text-decoration: none;
+            display: block;
+                /* Прописываем управляющие свойства */
+            transition-property: color;
+            transition-duration: 250ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .address-nav-link:hover,
+        .address-nav-link:focus {
+             color: #404bbf;
+         }
+    }
+        @media screen and (min-width: 1158px) {
+            .address-nav-link {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            .address-nav-link:hover,
+            .address-nav-link:focus {
+                color: #404bbf;
+            }
+        }
 
 /* Header */
 /* Hero imajes */
