@@ -270,6 +270,13 @@ img {
         color: #404bbf;
     }
 }
+@media only screen and (min-width: 768px) {
+
+    .nav-link:hover,
+    .nav-link:focus {
+        color: #404bbf;
+    }
+}
 .nav-link::after {
     content: "";
     position: absolute;
@@ -383,7 +390,6 @@ img {
             font-style: normal;
             text-decoration: none;
             display: block;
-                /* Прописываем управляющие свойства */
             transition-property: color;
             transition-duration: 250ms;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -409,7 +415,7 @@ img {
 .hero {
     background-color: #2E2F42;
     background-size: cover;
-    max-width: 1440px;
+    max-width: 320px;
     margin: 0 auto;
     padding: 72px 0;
     background-position: center;
@@ -430,6 +436,7 @@ img {
 
 @media only screen and (min-width: 768px) {
     .hero {
+        max-width: 768px;
         padding: 112px 0;
         background-image: linear-gradient(rgba(46, 47, 66, 0.7),
                 rgba(46, 47, 66, 0.7)),
@@ -448,6 +455,7 @@ img {
 
 @media only screen and (min-width: 1158px) {
     .hero {
+        max-width: 1440px;
         padding: 188px 0;
         margin-top: 72px;
         background-image: linear-gradient(rgba(46, 47, 66, 0.7),
@@ -471,6 +479,7 @@ img {
     font-weight: 700;
     font-size: 36px;
     line-height: 1.11;
+    letter-spacing: 0.02em;
     text-align: center; 
     color: #FFFFFF;
 }
@@ -910,17 +919,6 @@ img {
 /* Footer */
 /* Modal window */
 .backdrop {
-    /* any styles */
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-.backdrop.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-.backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -930,21 +928,28 @@ img {
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
         visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     border-radius: 4px;
-    width: 408px;
+    width: 288px;
     min-height: 584px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
         0 2px 1px 0 rgba(0, 0, 0, 0.2);
     background: #fcfcfc;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 72px 24px 24px 24px;
+    padding: 72px 16px 24px 16px;
 }
 .btn-closed {
     position: absolute;
@@ -960,9 +965,6 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0;
     cursor: pointer;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -973,17 +975,12 @@ img {
     height: 8px;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.btn-closed:hover {
-    background-color: #404bbf;
-    border: none;
-}
+.btn-closed:hover,
 .btn-closed:focus {
     background-color: #404bbf;
     border: none;
 }
-.btn-closed:hover .modal-svg-closed {
-    fill: #fff;
-}
+.btn-closed:hover .modal-svg-closed,
 .btn-closed:focus .modal-svg-closed {
     fill: #fff;
 }
@@ -1020,7 +1017,7 @@ img {
 .input-modal {
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    width: 360px;
+    width: 256px;
     height: 40px;
     padding-left: 38px;
     outline: none;
@@ -1047,7 +1044,7 @@ img {
     display: block;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    width: 360px;
+    width: 256px;
     height: 120px;
     padding: 8px 16px;
     resize: none;
@@ -1124,17 +1121,42 @@ input[type="checkbox"]:checked+.text-policy .span-svg-vector {
     color: #fff;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    top: 504px;
-    left: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    margin: 0 auto;
     border: none;
 }
 .btn-send-overlay:hover,
 .btn-send-overlay:focus {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
     background: #404bbf;
+}
+
+@media (min-width: 768px) {
+    .modal {
+        padding: 72px 24px 24px 24px;
+        width: 408px;
+    }
+    .input-modal {
+        width: 360px;
+    }
+    .textarea {
+        width: 360px;
+    }
+}
+@media (min-width: 1158px) {
+    .modal {
+        padding: 72px 24px 24px 24px;
+        width: 408px;
+    }
+    .input-modal {
+        width: 360px;
+    }
+    .textarea {
+        width: 360px;
+    }
 }
 /* Modal window */
 /* mobile menu */
